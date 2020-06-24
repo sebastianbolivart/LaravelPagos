@@ -13,10 +13,18 @@
                         <div class="row">
                             <div class="col-auto">
                                 <label for="">How much you want to pay?</label>
-                                <input class="form-control" type="number" name="value" min="5" step="0.01" value="{{mt_rand(500,100000) / 100}}">
+                                <input required class="form-control" type="number" name="value" min="5" step="0.01" value="{{mt_rand(500,100000) / 100}}">
                                 <small class="form-text text-muted">
                                     Use values with up to two decimal positions, using dot "."
                                 </small>
+                            </div>
+                            <div class="col-auto">
+                                <label>Currency</label>
+                                <select name="currency" id="" class="custom-select" required>
+                                    @foreach ($currencies as $currency )
+                                <option value="{{$currency->iso}}">{{strtoupper($currency->iso)}}</option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
                         <div class="text-center mt-3">
